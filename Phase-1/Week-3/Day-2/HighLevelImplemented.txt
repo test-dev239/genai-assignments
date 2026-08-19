@@ -1,0 +1,26 @@
+Below are the things which are implemented as part of Jira Integration and Day 1 changes
+
+- Added a Reset button above the testcases output Form 
+- Added a Download XLSX button beside the Reset button
+- Colours are different for the buttons
+- when there is no TestCase output the button is not clickable 
+- Added a mandatory Summary field in the form
+- Kept the Jira panel above the input form
+- Added a Jira connection flow with:
+	Base URL
+	Email ID
+	Jira API token
+- Added a Connect Jira button in the Jira Integration
+- Once Jira connection is established we should see the Connected is shown on the panel
+- Added a Disconnect action below the Connected button in Jira panel
+- Connected the app to Jira through the backend proxy to avoid browser CORS issues
+- Fetched Jira stories from the backend and displayed them in a dropdown
+- Auto-filled the story form from the selected Jira story
+- Added Description and Acceptance Criteria to get prefilled after the story is selected
+- Updated the form validation to require the key fields only
+- On clicking on reset button it only resets the Input Form and output testcases but doesnot disconnect the Jira connection
+
+Key behavior:
+* If Jira is connected, stories appear in the dropdown
+* When a story is selected, the form fields populate
+* On clicking on reset button it only resets the Input Form and output testcases but doesnot disconnect the Jira connection
