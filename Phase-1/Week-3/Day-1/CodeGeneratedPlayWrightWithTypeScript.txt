@@ -1,0 +1,31 @@
+import { Page } from '@playwright/test';
+
+export class LeaftapsLoginPage {
+  private readonly usernameInput = this.page.getByLabel('Username');
+  private readonly passwordInput = this.page.getByLabel('Password');
+  private readonly loginButton = this.page.getByRole('button', { name: 'Login' });
+
+  constructor(private readonly page: Page) {}
+
+  async open(): Promise<void> {
+    await this.page.goto('https://leaftaps.com/opentaps/control/main');
+  }
+
+  async fillUsername(username: string): Promise<void> {
+    await this.usernameInput.fill(username);
+  }
+
+  async fillPassword(password: string): Promise<void> {
+    await this.passwordInput.fill(password);
+  }
+
+  async submit(): Promise<void> {
+    await this.loginButton.click();
+  }
+
+  async login(username: string, password: string): Promise<void> {
+    await this.fillUsername(username);
+    await this.fillPassword(password);
+    await this.submit();
+  }
+}
